@@ -1,0 +1,66 @@
+<View style={{ display: this.state.secondPageDisplay }}>
+     <ImageBackground style={styles.background}
+     source={{uri: 'https://wallpaperset.com/w/full/8/a/4/473215.jpg'}}
+     >
+     <View style={styles.titleContainer}>
+        <Text style={styles.title}>
+        What is your name?
+        </Text>
+        <TextInput style={styles.nameInput}
+            onChangeText={(nameInput)=>
+            this.setState({nameInput})}
+            value={this.state.nameInput}
+        />
+     </View>
+     <Text style={styles.title}>
+        Choose your look
+        </Text>
+     <View style={styles.charactersContainer}>
+        <ScrollView horizontal={true}>
+        <TouchableHighlight
+            onPress={this.anthyCharacterProfile}>
+            <View style={styles.characterImage}>
+                 <Image source={{uri:'https://static.zerochan.net/Himemiya.Anthy.full.482678.jpg'}}
+                  style={{height: 100, width: 100}}
+                  />
+             </View>
+        </TouchableHighlight>
+        <TouchableHighlight
+            onPress={this.sakuraMikuCharacterProfile}>
+             <View style={styles.characterImage}>
+                 <Image source={{uri:'https://live.staticflickr.com/8302/7892548416_769037699b_z.jpg'}}
+                  style={{height: 100, width: 100}}
+                  />
+             </View>
+        </TouchableHighlight>
+        <TouchableHighlight
+            onPress={this.tomoeMamiCharacterProfile}>
+             <View style={styles.characterImage}>
+                 <Image source={{uri:'https://assets.mycast.io/characters/28272_normal.jpg?1544787087'}}
+                  style={{height: 100, width: 100}}
+                  />
+             </View>
+        </TouchableHighlight>
+        <TouchableHighlight
+            onPress={this.kOnGirlCharacterProfile}>
+             <View style={styles.characterImage}>
+                 <Image source={{uri:'https://pm1.narvii.com/5937/e92428304e9d2eed54b341eed36c64f88c9a8749_hq.jpg'}}
+                  style={{height: 100, width: 100}}
+                  />
+             </View>
+        </TouchableHighlight>
+        </ScrollView>
+        </View>
+        
+         <TouchableHighlight
+            onPress={this.nextPage}>
+            <View style={styles.characterImage}>
+                <View style={styles.button}>
+                 <Text style={styles.buttonText}>
+                  Next
+                 </Text>
+                </View>
+             </View>
+        </TouchableHighlight>
+     </ImageBackground>
+   </View>
