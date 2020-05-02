@@ -1,0 +1,18 @@
+<View style={{ display: this.state.sixthPageDisplay }}>
+        <ImageBackground style={styles.background} source={{ uri: 'https://wallpaperaccess.com/full/200653.jpg'}}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>
+            Class Time
+          </Text>
+        </View>
+
+        <TouchableHighlight style={styles.newButtonStyle}
+        onPress={this.toSeventhPage}>
+            <Text style={styles.buttonText}>
+              Next
+            </Text>
+        </TouchableHighlight>
+
+  
+     </ImageBackground>
+    </View>
