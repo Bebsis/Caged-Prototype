@@ -1,0 +1,31 @@
+<View style={{ display: this.state.thirdPageDisplay }}>
+        <ImageBackground style={styles.background}
+        source={{ uri: 'https://wallpaperset.com/w/full/8/a/4/473215.jpg'}}>
+          <View style={styles.titleContainer}>
+            <Text style={styles.title}>
+              Does this look okay?
+            </Text>
+          </View>
+          <View style={styles.profileContainer}>
+            <Image source={{ uri: this.state.profilePic }}
+            style={{ height: 300, width: 150 }}
+            />
+          </View>
+          <View style={styles.buttonsContainer}>
+            <TouchableHighlight onPress={this.yesButton}>
+              <View style={styles.button}>
+                <Text style={styles.buttonText}>
+                  Yes
+                </Text>
+              </View>
+            </TouchableHighlight>
+            <TouchableHighlight onPress={this.noButton}>
+              <View style={styles.button}>
+                <Text style={styles.buttonText}>
+                  No
+                </Text>
+              </View>
+            </TouchableHighlight>
+          </View>
+        </ImageBackground>
+      </View>
