@@ -1,0 +1,29 @@
+<View style={{ display: this.state.fourthPageDisplay }}>
+        <ImageBackground style={styles.background} source={{ uri: 'https://i.pinimg.com/originals/38/35/89/383589eafe3122a2c6870e0b81c4184b.png'}}>
+
+          <View style={styles.characterAndEverythingElseContainer}>
+          </View>
+
+          <View style={styles.speechContainer}>
+            <View style={styles.nameInputContainer}>
+              <Text style={styles.speaker}>
+                {this.state.speaker[this.state.count]}
+              </Text>
+            </View>
+            <View style={styles.textContainer}>
+              <Text style={styles.speechText}>
+                {this.state.speech[this.state.count]}
+              </Text>
+              <TouchableHighlight style={styles.nextButton} 
+           onPress = {this.handleNextButtonPress}>
+              <Image source={      {uri:'https://images.homedepot-static.com/productImages/a810e8c9-9c40-44f9-a01c-eeaa5ac9c88d/svn/stencil-ease-commercial-stencils-cc0081m-64_1000.jpg'}}
+              style={{height: 50, width: 50}}
+              />
+          </TouchableHighlight>
+            </View>
+          </View>
+
+          
+     
+     </ImageBackground>
+    </View>
