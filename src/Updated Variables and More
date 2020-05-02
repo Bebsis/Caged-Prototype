@@ -5,9 +5,9 @@ state = {
     thirdPageDisplay: 'none',
     fourthPageDisplay: 'none',
     fifthPageDisplay: 'none',
-    speech: ['Testing...'],
-    count: 0,
-    altCount:0,  
+    speech: ['...'],
+    count: 0,  
+    speaker: ['???'],
     };
   enterPress = () =>
     this.setState(state => ({
@@ -33,14 +33,6 @@ state = {
       fourthPageDisplay: 'block',
       fifthPageDisplay: 'none',
     }));
-  toFive = () =>
-    this.setState(state => ({
-      initialPageDisplay: 'none',
-      secondPageDisplay: 'none',
-      thirdPageDisplay: 'none',
-      fourthPageDisplay: 'none',
-      fifthPageDisplay: 'block',
-    }));
   noButton = () =>
     this.setState(state => ({
       initialPageDisplay: 'none',
@@ -49,13 +41,23 @@ state = {
       fourthPageDisplay: 'none',
       fifthPageDisplay: 'none',
     }));
-  handleNextButtonPress = () =>
-    this.setState(state => ({
-      speech: [
-        '','1','2','3'],
-      count: this.state.count + 1,
-      altCount: this.state.altCount + 1,
-    }));
+  handleNextButtonPress = () => {
+      if (this.state.count < 4) {
+        this.setState({
+          count: (this.state.count + 1),
+          speaker: [this.state.nameInput, this.state.nameInput, this.state.nameInput,this.state.nameInput, this.state.nameInput, '???', this.state.nameInput, '???',this.state.nameInput, '???',this.state.nameInput, this.state.nameInput ],
+          speech: ['', 'Is this thing on', 'Hi. My name is '+ this.state.nameInput + ', and this is my last year at Koko High School', "I can't wait to leave", 'Do whatever I wanna to do','...',"Don't I know you from somewhere", "No, I'm just a normal background character", 'Are you su-', 'Normal. Background. Character', '...', 'Okay then'],
+      })
+      } 
+      else {
+        this.setState({
+          count: (this.state.count + 1),
+          initialPageDisplay: 'none',
+          secondPageDisplay: 'none',
+          thirdPageDisplay: 'none',
+          fourthPageDisplay: 'none',
+          fifthPageDisplay: 'block',
+      })}}
   anthyCharacterProfile = () =>
     this.setState(state => ({
       profilePic:    'https://lh3.googleusercontent.com/proxy/MRC2ti0JFYSZg500uv6mohG8S_StgKdmBBAs3wKcc_FDYlF7OzGnTzNidpGimaslIj2jQjgkFLyx9jr0r05KEqny6PI5hje7j7PP2h5e7sdTmw',
