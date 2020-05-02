@@ -1,0 +1,98 @@
+state = {
+    nameInput: 'You',
+    initialPageDisplay: 'block',
+    secondPageDisplay: 'none',
+    thirdPageDisplay: 'none',
+    fourthPageDisplay: 'none',
+    fifthPageDisplay: 'none',
+    speech: ['Testing...'],
+    count: 0,
+    altCount:0,  
+    };
+  enterPress = () =>
+    this.setState(state => ({
+      initialPageDisplay: 'none',
+      secondPageDisplay: 'block',
+      thirdPageDisplay: 'none',
+      fourthPageDisplay: 'none',
+      fifthPageDisplay: 'none',
+    }));
+  nextPage = () =>
+    this.setState(state => ({
+      initialPageDisplay: 'none',
+      secondPageDisplay: 'none',
+      thirdPageDisplay: 'block',
+      fourthPageDisplay: 'none',
+      fifthPageDisplay: 'none',
+    }));
+  yesButton = () =>
+    this.setState(state => ({
+      initialPageDisplay: 'none',
+      secondPageDisplay: 'none',
+      thirdPageDisplay: 'none',
+      fourthPageDisplay: 'block',
+      fifthPageDisplay: 'none',
+    }));
+  toFive = () =>
+    this.setState(state => ({
+      initialPageDisplay: 'none',
+      secondPageDisplay: 'none',
+      thirdPageDisplay: 'none',
+      fourthPageDisplay: 'none',
+      fifthPageDisplay: 'block',
+    }));
+  noButton = () =>
+    this.setState(state => ({
+      initialPageDisplay: 'none',
+      secondPageDisplay: 'block',
+      thirdPageDisplay: 'none',
+      fourthPageDisplay: 'none',
+      fifthPageDisplay: 'none',
+    }));
+  handleNextButtonPress = () =>
+    this.setState(state => ({
+      speech: [
+        '','1','2','3'],
+      count: this.state.count + 1,
+      altCount: this.state.altCount + 1,
+    }));
+  anthyCharacterProfile = () =>
+    this.setState(state => ({
+      profilePic:    'https://lh3.googleusercontent.com/proxy/MRC2ti0JFYSZg500uv6mohG8S_StgKdmBBAs3wKcc_FDYlF7OzGnTzNidpGimaslIj2jQjgkFLyx9jr0r05KEqny6PI5hje7j7PP2h5e7sdTmw',
+    }));
+  sakuraMikuCharacterProfile = () =>
+    this.setState(state => ({
+      profilePic:        'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/0b7b5e4b-c62e-41f7-8ced-1f3e58c4f5bf/d8dmzih-9d947e36-318d-4128-9a19-1a2605e5b575.png/v1/fill/w_774,h_1032,strp/kasokusato_sakura_miku_dl_by_xoriu_d8dmzih-pre.png',
+    }));
+  tomoeMamiCharacterProfile = () =>
+    this.setState(state => ({
+      profilePic:    'https://vignette.wikia.nocookie.net/axl-univers-world/images/b/b2/424px-Img_mami.png/revision/latest?cb=20181111125043',
+    }));
+  choiMochimazziCharacterProfile = () =>
+    this.setState(state => ({ 
+      profilePic:  'https://vignette.wikia.nocookie.net/tamakomarket/images/3/38/01_%281%29.png/revision/latest/scale-to-width-down/340?cb=20141124232950',
+    }));
+
+render() {
+  return (
+    <View style={styles.container}>
+        
+      <View style={{ display: this.state.initialPageDisplay }}>
+        <View style={styles.contentContainer}>
+          <ImageBackground style={styles.background}
+          source={{ uri: 'https://wallpaperaccess.com/full/6313.jpg' }}>
+            <Image source={{ uri: 'https://www.freelogodesign.org/file/app/client/thumb/a583d148-9419-435d-bfad-b9de21d149a4_200x200.png?1587500957900'}}
+            style={{ height: 200, width: 200 }}
+            />
+
+            <TouchableHighlight style={styles.enterButton}
+            onPress={this.enterPress}>
+              <View style={styles.buttonStyle}>
+                <Text style={styles.text}>
+                  Enter
+                </Text>
+              </View>
+            </TouchableHighlight>
+          </ImageBackground>
+        </View>
+      </View>
