@@ -1,0 +1,714 @@
+import * as React from 'react';
+import {AppRegistry,Text, View, StyleSheet, Dimensions, TextInput, Image,ImageBackground, TouchableHighlight, ScrollView,} from 'react-native';
+import Constants from 'expo-constants';
+
+let deviceHeight = Dimensions.get('window').height;
+let deviceWidth = Dimensions.get('window').width; 
+
+export default class App extends React.Component { 
+state = {
+nameInput: 'You',  
+initialPageDisplay: 'block',
+secondPageDisplay: 'none',
+thirdPageDisplay: 'none',
+fourthPageDisplay: 'none',
+fifthPageDisplay: 'none',
+sixthPageDisplay: 'none',
+seventhPageDisplay: 'none',
+libraryPage: 'none',
+withFriendPage: 'none',
+goHomePage: 'none',
+sceneOneText: ['...'],
+count: 0,
+speaker: ['???'],
+fight: 0,
+flight: 0,
+};
+enterPress = () =>
+this.setState(state => ({
+initialPageDisplay: 'none',
+secondPageDisplay: 'block',
+thirdPageDisplay: 'none',
+fourthPageDisplay: 'none',
+fifthPageDisplay: 'none',
+sixthPageDisplay: 'none',
+seventhPageDisplay: 'none',
+libraryPage: 'none',
+withFriendPage: 'none',
+goHomePage: 'none',
+}));
+nextPage = () =>
+this.setState(state => ({
+initialPageDisplay: 'none',
+secondPageDisplay: 'none',
+thirdPageDisplay: 'block',
+fourthPageDisplay: 'none',
+fifthPageDisplay: 'none',
+sixthPageDisplay: 'none',
+seventhPageDisplay: 'none',
+libraryPage: 'none',
+withFriendPage: 'none',
+goHomePage: 'none',
+}));
+yesButton = () =>
+this.setState(state => ({
+initialPageDisplay: 'none',
+secondPageDisplay: 'none',
+thirdPageDisplay: 'none',
+fourthPageDisplay: 'block',
+fifthPageDisplay: 'none',
+sixthPageDisplay: 'none',
+seventhPageDisplay: 'none',
+libraryPage: 'none',
+withFriendPage: 'none',
+goHomePage: 'none',
+}));
+noButton = () =>
+this.setState(state => ({
+initialPageDisplay: 'none',
+secondPageDisplay: 'block',
+thirdPageDisplay: 'none',
+fourthPageDisplay: 'none',
+fifthPageDisplay: 'none',
+sixthPageDisplay: 'none',
+seventhPageDisplay: 'none',
+libraryPage: 'none',
+withFriendPage: 'none',
+goHomePage: 'none',
+}));
+handleNextButtonPress = () => {
+if (this.state.count < 4) {
+this.setState({
+count: (this.state.count + 1),
+speaker: [this.state.nameInput, this.state.nameInput, this.state.nameInput,this.state.nameInput, this.state.nameInput, '???', this.state.nameInput, '???',this.state.nameInput, '???',this.state.nameInput, this.state.nameInput, 'School Bell', 'Principal', '???', this.state.nameInput ],
+sceneOneText: ['', 'Is this thing on', 'Hi. My name is '+ this.state.nameInput + ', and this is my last year at Koko High School', "I can't wait to leave", 'Do whatever I wanna to do','...',"Don't I know you from somewhere", "No, I'm just a normal background character", 'Are you su-', 'Normal. Background. Character', '...', 'Okay then', '*Chimes*','It is now 8:00 am. Get to class.', 'You heard the lady', '...Geez' ],
+})
+}
+else if (this.state.count < 15){
+this.setState({
+count: (this.state.count + 1),
+initialPageDisplay: 'none',
+secondPageDisplay: 'none',
+thirdPageDisplay: 'none',
+fourthPageDisplay: 'none',
+fifthPageDisplay: 'block',
+sixthPageDisplay: 'none',
+seventhPageDisplay: 'none',
+libraryPage: 'none',
+withFriendPage: 'none',
+goHomePage: 'none',
+})}
+else{
+this.setState({
+count: (this.state.count + 1),
+initialPageDisplay: 'none',
+secondPageDisplay: 'none',
+thirdPageDisplay: 'none',
+fourthPageDisplay: 'none',
+fifthPageDisplay: 'none',
+sixthPageDisplay: 'block',
+seventhPageDisplay: 'none',
+libraryPage: 'none',
+withFriendPage: 'none',
+goHomePage: 'none',
+})}}
+
+toSeventhPage = () =>
+this.setState(state => ({
+initialPageDisplay: 'none',
+secondPageDisplay: 'none',
+thirdPageDisplay: 'none',
+fourthPageDisplay: 'none',
+fifthPageDisplay: 'none',
+sixthPageDisplay: 'none',
+seventhPageDisplay: 'block',
+libraryPage: 'none',
+withFriendPage: 'none',
+goHomePage: 'none',
+}));
+
+toTheLibrary = () =>
+this.setState(state => ({
+initialPageDisplay: 'none',
+secondPageDisplay: 'none',
+thirdPageDisplay: 'none',
+fourthPageDisplay: 'none',
+fifthPageDisplay: 'none',
+sixthPageDisplay: 'none',
+seventhPageDisplay: 'none',
+libraryPage: 'block',
+withFriendPage: 'none',
+goHomePage: 'none',
+}));
+
+goHome = () =>
+this.setState(state => ({
+initialPageDisplay: 'none',
+secondPageDisplay: 'none',
+thirdPageDisplay: 'none',
+fourthPageDisplay: 'none',
+fifthPageDisplay: 'none',
+sixthPageDisplay: 'none',
+seventhPageDisplay: 'none',
+libraryPage: 'none',
+withFriendPage: 'none',
+goHomePage: 'block',
+}));
+
+withFriends = () =>
+this.setState(state => ({
+initialPageDisplay: 'none',
+secondPageDisplay: 'none',
+thirdPageDisplay: 'none',
+fourthPageDisplay: 'none',
+fifthPageDisplay: 'none',
+sixthPageDisplay: 'none',
+seventhPageDisplay: 'none',
+libraryPage: 'none',
+withFriendPage: 'block',
+goHomePage: 'none',
+}));
+
+anthyCharacterProfile = () =>
+this.setState(state => ({
+profilePic: 'https://lh3.googleusercontent.com/proxy/eiVpCFdTmk2fIRroCpdcBNBTy9YW-tKLjKkQW6qCo0zbl24atD7MGgyEiu_q3p2I2s7ih7OPctOsLHNxv2q6dDcCQhOldww-vhLOgOlA6dHLGA',
+fight: 10,
+flight: 20,
+friend1: 'https://lh3.googleusercontent.com/proxy/-93GQYQTaDpDOJPlo3kRORj8qyZhNsc7Gypam3HrYZnaqy0iN8p9M0DwFLM3UFaZEL-Jmtx7X6oqq0ueEO1A2tq4gIe2',
+friend2: 'https://lh3.googleusercontent.com/proxy/yrulx8EJMLkuli5i1FNR-2exwAyLj4F38NVc-AzVQQmP0lkqLmFb_YLRvsEVIMTTJ91z3Ns2FJGVMontU-RoJYqL4Ts',
+}));
+sakuraMikuCharacterProfile = () =>
+this.setState(state => ({
+profilePic: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/0b7b5e4b-c62e-41f7-8ced-1f3e58c4f5bf/d8dmzih-9d947e36-318d-4128-9a19-1a2605e5b575.png/v1/fill/w_774,h_1032,strp/kasokusato_sakura_miku_dl_by_xoriu_d8dmzih-pre.png',
+fight: 5,
+flight: 5,
+friend1: 'https://vignette.wikia.nocookie.net/vocaloid/images/7/77/MEIKO_V3.png/revision/latest?cb=20140117094450', 
+friend2: 'https://vignette.wikia.nocookie.net/project-diva/images/7/7e/Kagamine_Rin_MegaMix.png/revision/latest?cb=20200325071216',
+}));
+tomoeMamiCharacterProfile = () =>
+this.setState(state => ({
+profilePic: 'https://vignette.wikia.nocookie.net/axl-univers-world/images/b/b2/424px-Img_mami.png/revision/latest?cb=20181111125043', 
+fight: 20,
+flight: 5,
+friend1: 'https://i.pinimg.com/originals/38/b0/5f/38b05f71e872a6c237a4b48da03abcc7.png', 
+friend2: 'https://vignette.wikia.nocookie.net/unisonleague/images/d/d1/Gear-Sayaka_Miki_Render.png/revision/latest/scale-to-width-down/340?cb=20170315115549',
+}));
+choiMochimazziCharacterProfile = () =>
+this.setState(state => ({
+profilePic: 'https://vignette.wikia.nocookie.net/tamakomarket/images/3/38/01_%281%29.png/revision/latest/scale-to-width-down/340?cb=20141124232950',
+fight: 10,
+flight: 10,
+friend1: 'https://vignette.wikia.nocookie.net/goanimate-2/images/3/34/Mio_2.png/revision/latest/scale-to-width-down/340?cb=20160721173433',
+friend2: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18f36156-4772-4570-9db4-f21948603f04/d6612dl-1b395114-fe54-48a9-a90a-099e9d2cf1f0.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMThmMzYxNTYtNDc3Mi00NTcwLTlkYjQtZjIxOTQ4NjAzZjA0XC9kNjYxMmRsLTFiMzk1MTE0LWZlNTQtNDhhOS1hOTBhLTA5OWU5ZDJjZjFmMC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.ZBfCNPYB0Hn7GlsSjvX_0FqPZmSqFmcw7PWQXpVQEvo',
+}));
+
+proFlight = () =>
+this.setState(state => ({
+flight: this.state.flight + 1
+}));
+
+proFight = () =>
+this.setState(state => ({
+flight: this.state.fight + 1
+}));
+
+handleFightorFlightResponse = () => {
+if (this.state.flight == 15) {
+this.setState({
+
+})}
+else if (this.state.fight == 15){
+this.setState({
+
+})}}
+
+render() {
+return (
+<View style={styles.container}>
+
+<View style={{ display: this.state.initialPageDisplay }}>
+<View style={styles.contentContainer}>
+<ImageBackground style={styles.background}
+source={{ uri: 'https://wallpaperaccess.com/full/6313.jpg' }}>
+<Image source={{ uri: 'https://www.freelogodesign.org/file/app/client/thumb/a583d148-9419-435d-bfad-b9de21d149a4_200x200.png?1587500957900'}}
+style={{ height: 200, width: 200 }}
+/>
+
+<TouchableHighlight style={styles.enterButton}
+onPress={this.enterPress}>
+<View style={styles.buttonStyle}>
+<Text style={styles.text}>
+Enter
+</Text>
+</View>
+</TouchableHighlight>
+</ImageBackground>
+</View>
+</View>
+
+<View style={{ display: this.state.secondPageDisplay }}>
+<ImageBackground style={styles.background}
+source={{ uri: 'https://wallpaperset.com/w/full/8/a/4/473215.jpg' }}>
+<View style={styles.titleContainer}>
+<Text style={styles.title}>
+What is your name?
+</Text>
+<TextInput style={styles.nameInput}
+onChangeText={nameInput=> this.setState({ nameInput })}
+value={this.state.nameInput}
+/>
+</View>
+<Text style={styles.title}>
+Choose your look
+</Text>
+<View style={styles.charactersContainer}>
+<ScrollView horizontal={true}>
+<TouchableHighlight onPress={this.anthyCharacterProfile}>
+<View style={styles.characterImage}>
+<Image source={{ uri: 'https://static.zerochan.net/Himemiya.Anthy.full.482678.jpg'}}
+style={{ height: 100, width: 100 }}
+/>
+</View>
+</TouchableHighlight>
+<TouchableHighlight onPress={this.sakuraMikuCharacterProfile}>
+<View style={styles.characterImage}>
+<Image source={{ uri: 'https://live.staticflickr.com/8302/7892548416_769037699b_z.jpg'}}
+style={{ height: 100, width: 100 }}
+/>
+</View>
+</TouchableHighlight>
+<TouchableHighlight onPress={this.tomoeMamiCharacterProfile}>
+<View style={styles.characterImage}>
+<Image source={{ uri:
+'https://assets.mycast.io/characters/28272_normal.jpg?1544787087'}}
+style={{ height: 100, width: 100 }}
+/>
+</View>
+</TouchableHighlight>
+<TouchableHighlight onPress={this.choiMochimazziCharacterProfile}>
+<View style={styles.characterImage}>
+<Image source={{ uri:
+'https://pm1.narvii.com/5937/e92428304e9d2eed54b341eed36c64f88c9a8749_hq.jpg'}}
+style={{ height: 100, width: 100 }}
+/>
+</View>
+</TouchableHighlight>
+</ScrollView>
+</View>
+<TouchableHighlight onPress={this.nextPage}>
+<View style={styles.characterImage}>
+<View style={styles.button}>
+<Text style={styles.buttonText}>
+Next
+</Text>
+</View>
+</View>
+</TouchableHighlight>
+</ImageBackground>
+</View>
+
+<View style={{ display: this.state.thirdPageDisplay }}>
+<ImageBackground style={styles.background}
+source={{ uri: 'https://wallpaperset.com/w/full/8/a/4/473215.jpg'}}>
+<View style={styles.titleContainer}>
+<Text style={styles.title}>
+Does this look okay?
+</Text>
+</View>
+<View style={styles.profileContainer}>
+<Image source={{ uri: this.state.profilePic }}
+style={{ height: 300, width: 150 }}
+/>
+</View>
+<View style={styles.buttonsContainer}>
+<TouchableHighlight onPress={this.yesButton}>
+<View style={styles.button}>
+<Text style={styles.buttonText}>
+Yes
+</Text>
+</View>
+</TouchableHighlight>
+<TouchableHighlight onPress={this.noButton}>
+<View style={styles.button}>
+<Text style={styles.buttonText}>
+No
+</Text>
+</View>
+</TouchableHighlight>
+</View>
+</ImageBackground>
+</View>
+
+<View style={{ display: this.state.fourthPageDisplay }}>
+<ImageBackground style={styles.background} source={{ uri: 'https://i.pinimg.com/originals/38/35/89/383589eafe3122a2c6870e0b81c4184b.png'}}>
+
+<View style={styles.characterAndEverythingElseContainer}>
+</View>
+
+<View style={styles.speechContainer}>
+<View style={styles.nameInputContainer}>
+<Text style={styles.speaker}>
+{this.state.speaker[this.state.count]}
+</Text>
+</View>
+<View style={styles.textContainer}>
+<Text style={styles.speechText}>
+{this.state.sceneOneText[this.state.count]}
+</Text>
+<TouchableHighlight style={styles.nextButton}
+onPress = {this.handleNextButtonPress}>
+<Image source={ {uri:'https://images.homedepot-static.com/productImages/a810e8c9-9c40-44f9-a01c-eeaa5ac9c88d/svn/stencil-ease-commercial-stencils-cc0081m-64_1000.jpg'}}
+style={{height: 50, width: 50}}
+/>
+</TouchableHighlight>
+</View>
+</View>
+
+
+
+
+</ImageBackground>
+</View>
+
+<View style={{ display: this.state.fifthPageDisplay }}>
+<ImageBackground style={styles.background} source={{ uri: 'https://i.pinimg.com/originals/38/35/89/383589eafe3122a2c6870e0b81c4184b.png'}}>
+
+<View style={styles.characterAndEverythingElseContainer}>
+<Image source={{uri: 'https://pngimage.net/wp-content/uploads/2018/06/rei-ayanami-png-.png'}}
+style={{height: 300, width: 150}}
+/>
+</View>
+
+<View style={styles.speechContainer}>
+<View style={styles.nameInputContainer}>
+<Text style={styles.nameInput}>
+{this.state.speaker[this.state.count]}
+</Text>
+</View>
+<View style={styles.textContainer}>
+<Text style={styles.speechText}>
+{this.state.sceneOneText[this.state.count]}
+</Text>
+<TouchableHighlight style={styles.nextButton}
+onPress = {this.handleNextButtonPress}>
+<Image source={ {uri:'https://images.homedepot-static.com/productImages/a810e8c9-9c40-44f9-a01c-eeaa5ac9c88d/svn/stencil-ease-commercial-stencils-cc0081m-64_1000.jpg'}}
+style={{height: 50, width: 50}}
+/>
+</TouchableHighlight>
+</View>
+</View>
+
+</ImageBackground>
+</View>
+
+<View style={{ display: this.state.sixthPageDisplay }}>
+<ImageBackground style={styles.background} source={{ uri: 'https://wallpaperaccess.com/full/200653.jpg'}}>
+<View style={styles.titleContainer}>
+<Text style={styles.title}>
+Class Time
+</Text>
+</View>
+
+<TouchableHighlight style={styles.newButtonStyle}
+onPress={this.toSeventhPage}>
+<Text style={styles.buttonText}>
+Next
+</Text>
+</TouchableHighlight>
+
+
+</ImageBackground>
+</View>
+
+<View style={{ display: this.state.seventhPageDisplay }}>
+<ImageBackground style={styles.background} source={{ uri: 'https://wallpaperaccess.com/full/859177.jpg'}}>
+<View style={styles.characterAndEverythingElseContainer}>
+<Image source={{uri: this.state.profilePic}}
+style={{height: 300, width: 150, marginTop: 250,}}
+/>
+</View>
+
+<View style={styles.speechContainer}>
+<View style={styles.nameInputContainer}>
+<Text style={styles.nameInput}>
+{this.state.nameInput}
+</Text>
+</View>
+<View style={styles.textContainer}>
+<Text style={styles.speechText}>
+What should I do now?
+</Text>
+
+<TouchableHighlight style={styles.optionButton}
+onPress = {this.toTheLibrary}>
+<Text style={styles.buttonTextTwo}>
+-Go to the library
+</Text>
+</TouchableHighlight>
+
+<TouchableHighlight style={styles.optionButton}
+onPress = {this.withFriends}>
+<Text style={styles.buttonTextTwo}>
+-Hang out with friends
+</Text>
+</TouchableHighlight>
+
+<TouchableHighlight style={styles.optionButton}
+onPress = {this.goHome}>
+<Text style={styles.buttonTextTwo}>
+-Go Home
+</Text>
+</TouchableHighlight>
+
+</View>
+</View>
+
+
+</ImageBackground>
+</View>
+
+<View style={{ display: this.state.withFriendPage }}>
+<ImageBackground style={styles.background} source={{ uri: 'https://i.pinimg.com/originals/81/b2/34/81b234e6d4a79f243357e9f0d928135e.png'}}>
+
+<View style={styles.charactersAndEverythingElseContainer}>
+<Image source={{uri: this.state.friend1}}
+style={{height: 300, width: 100, marginTop: 270}}
+/>
+
+<Image source={{uri: this.state.profilePic}}
+style={{height: 300, width: 100, marginTop: 270}}
+/>
+
+<Image source={{uri: this.state.friend2}}
+style={{height: 300, width: 100, marginTop: 270}}
+/>
+</View>
+
+<View style={styles.speechContainer}>
+
+<View style={styles.textContainer}>
+<Text style={styles.greenText}>
+-Social Up
+</Text>
+<Text style={styles.redText}>
+-Anxiety Down
+</Text>
+<TouchableHighlight style={styles.nextButton}
+onPress = {this.returnHomescene}>
+<View style={styles.button}>
+<Text style={styles.buttonText}>
+Next
+</Text>
+</View>
+</TouchableHighlight>
+
+</View>
+</View>
+
+</ImageBackground>
+</View> 
+
+<View style={{ display: this.state.libraryPage }}>
+<ImageBackground style={styles.background} source={{ uri: 'https://wallpaperaccess.com/full/2114456.jpg'}}>
+
+<View style={styles.characterAndEverythingElseContainer}>
+<Image source={{uri: this.state.profilePic}}
+style={{height: 150, width: 75, marginTop: 270,}}
+/>
+</View>
+
+<View style={styles.speechContainer}>
+
+<View style={styles.textContainer}>
+<Text style={styles.redText}>
+-Social Down
+</Text>
+<Text style={styles.greenText}>
+-Wisdom Up
+</Text>
+<TouchableHighlight style={styles.nextButton}
+onPress = {this.toFOFscene}>
+<View style={styles.button}>
+<Text style={styles.buttonText}>
+Next
+</Text>
+</View>
+</TouchableHighlight>
+
+</View>
+</View>
+
+</ImageBackground>
+</View>
+
+<View style={{ display: this.state.goHomePage }}>
+<ImageBackground style={styles.background} source={{ uri: 'https://i2.wp.com/winfloosteria.com/wp-content/uploads/2019/09/int-fancy-apartment-bedroom-night-episode-anime-bedroom.jpg?fit=1920%2C1136'}}> 
+
+<View style={styles.characterAndEverythingElseContainer}>
+<Image source={{uri: this.state.profilePic}}
+style={{height: 300, width: 150, marginTop: 200}}
+/>
+</View>
+
+<View style={styles.speechContainer}>
+
+<View style={styles.textContainer}>
+<Text style={styles.redText}>
+-Social Down
+</Text>
+<Text style={styles.redText}>
+-Tension Down
+</Text>
+<TouchableHighlight style={styles.nextButton}
+onPress = {this.returntoSchool}>
+<View style={styles.button}>
+<Text style={styles.buttonText}>
+Next
+</Text>
+</View>
+</TouchableHighlight>
+
+</View>
+</View>
+
+
+
+</ImageBackground>
+</View>
+
+</View>
+
+);
+}}
+
+const styles = StyleSheet.create({
+background: {
+height: deviceHeight,
+width: deviceWidth,
+alignItems: 'center',
+justifyContent: 'center',
+},
+button: {
+width: 90,
+height: 30,
+backgroundColor: 'blue',
+margin: 5,
+},
+buttonsContainer: {
+flexDirection: 'row',
+},
+buttonStyle: {
+width: 90,
+height: 100,
+marginTop: 150,
+},
+buttonText: {
+fontSize: 15,
+color: 'white',
+textAlign: 'center',
+},
+redText: {
+fontSize: 15,
+color: 'red',
+textAlign: 'center',
+margin: 5,
+},
+greenText: {
+fontSize: 15,
+color: 'green',
+textAlign: 'center',
+margin: 5,
+},
+buttonTextTwo: {
+fontSize: 10,
+textAlign: 'center'
+},
+characterAndEverythingElseContainer: {
+height: (9 * deviceHeight) / 12,
+alignItems: 'center',
+justifyContent: 'center',
+},
+charactersAndEverythingElseContainer: {
+height: (9 * deviceHeight) / 12,
+alignItems: 'center',
+justifyContent: 'center',
+flexDirection: 'row',
+},
+characterImage: {
+margin: 5,
+},
+charactersContainer: {
+height: 100,
+width: deviceWidth,
+flexDirection: 'row',
+},
+container: {
+height: deviceHeight,
+width: deviceWidth,
+alignItems: 'center',
+justifyContent: 'center',
+},
+contentContainer: {
+height: deviceHeight,
+width: deviceWidth,
+alignItems: 'center',
+justifyContent: 'center',
+},
+nameInputContainer: {
+backgroundColor: 'white',
+alignItems: 'center',
+justifyContent: 'center',
+borderWidth: 2,
+height: deviceHeight / 22,
+width: deviceWidth / 4,
+margin: 2,
+},
+nameInput: {
+fontSize: 20,
+textAlign: 'center',
+height: 20,
+width: 200,
+},
+newButtonStyle: {
+width: 90,
+height: 30,
+marginTop: 200,
+backgroundColor: 'purple',
+},
+nextButton:{
+marginLeft: 230,
+marginTop: 9,
+},
+optionButton:{
+height: 20,
+width: 300,
+margin: 1,
+},
+profileContainer: {
+alignItems: 'center',
+justifyContent: 'center',
+},
+speechContainer: {
+height: deviceHeight / 4,
+},
+text: {
+textAlign: 'center',
+fontSize: 30,
+borderWidth: 1,
+backgroundColor: 'purple',
+color: 'white',
+},
+textContainer: {
+height: deviceHeight / 6,
+width: 300,
+borderWidth: 2,
+margin: 5,
+backgroundColor: 'white',
+},
+title: {
+fontSize: 30,
+fontWeight: 'bold',
+textAlign: 'center',
+marginBottom: 10,
+},
+});
